@@ -37,7 +37,7 @@ public class TaskControllerRest {
         return ResponseEntity.ok(task);
     }
 
-    /* п.7*/
+//     п.7
     @PostMapping("/task/{id}/user/{userId}")
     public String addUserToTask(@PathVariable("id") Long taskId, @PathVariable("userId") Long userId) {
         taskService.addUserToTask(taskId, userId);
@@ -62,5 +62,4 @@ public class TaskControllerRest {
     public Map<String, String> getSummary(@PathVariable Long id) {
         return taskService.getTaskSummary(id);
     }
-
 }

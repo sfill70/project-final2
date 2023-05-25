@@ -5,8 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
-@ActiveProfiles("test")
-@TestPropertySource("classpath:application-test.yaml")
+/*@ActiveProfiles("test")
+@TestPropertySource("classpath:application-test.yaml")*/
+@EnableTestContainers
 @SpringBootTest
 class JiraRushApplicationTests {
 	@Test
