@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 //https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing-spring-boot-applications
+@EnableTestContainers
 @SpringBootTest
 @Sql(scripts = "classpath:db/test.sql", config = @SqlConfig(encoding = "UTF-8"))
 @AutoConfigureMockMvc

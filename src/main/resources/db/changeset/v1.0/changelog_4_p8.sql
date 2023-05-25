@@ -1,0 +1,3 @@
+-- INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (7, 'MyTask-5', 'short test task', 'task', 'in progress', 'low', null, null, 2, 1, null, null, null);
+INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (8, 'MyTask-7', 'test 2 task', 'bug', 'ready', 'normal', null, null, 2, 1, null, null, null);
+INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (9, 'MyTask-8', 'test 4', 'bug', 'in progress', 'low', null, null, 2, 1, null, null, null);

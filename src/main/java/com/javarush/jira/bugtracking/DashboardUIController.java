@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,6 +28,12 @@ public class DashboardUIController {
         Map<SprintTo, List<TaskTo>> taskMap = tasks.stream()
                 .collect(Collectors.groupingBy(TaskTo::getSprint));
         model.addAttribute("taskMap", taskMap);
+        Map<Long, Map<String, String>> mapSummary = new HashMap<>();
+        for (TaskTo taskTo : tasks
+        ) {
+            mapSummary.put(taskTo.id(), taskService.getTaskSummary(taskTo.getId()));
+        }
+        model.addAttribute("mapSummary", mapSummary);
         return "index";
     }
 }
