@@ -56,4 +56,11 @@ public class TaskControllerRest {
         return "redirect:/";
     }
 
+    // 8.add task summary (valid - task id=3 )
+    @PostMapping("/summary/{id}")
+    @ResponseBody
+    public Map<String, String> getSummary(@PathVariable Long id) {
+        return taskService.getTaskSummary(id);
+    }
+
 }

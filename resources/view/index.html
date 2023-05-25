@@ -26,6 +26,13 @@
                                         <h6 class="card-subtitle mb-2 text-muted" style="text-align: left; "
                                             th:text="${task.priorityCode}"></h6>
                                     </div>
+
+                                    <div> Summary</div>
+                                    <div th:each="entry: ${mapSummary.get(task.getId())}">
+                                        <div th:with="title=${entry.key}, time=${entry.value}">
+                                            <p th:text="${title}+': '+${time}"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
