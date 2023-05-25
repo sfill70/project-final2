@@ -1,0 +1,1 @@
+INSERT INTO task (id, title, description, type_code, status_code, priority_code, estimate, updated, project_id, sprint_id, parent_id, startpoint, endpoint) VALUES (6, 'Task-5', 'test 5 descr', 'task', 'done', 'low', null, null, 2, 1, null, null, null);
