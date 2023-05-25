@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,25 @@ public class TaskControllerRest {
         }
         Task task = taskService.addTagsToTask(id, Set.of(tags));
         return ResponseEntity.ok(task);
+    }
+
+    /* п.7*/
+    @PostMapping("/task/{id}/user/{userId}")
+    public String addUserToTask(@PathVariable("id") Long taskId, @PathVariable("userId") Long userId) {
+        taskService.addUserToTask(taskId, userId);
+        return "redirect:/";
+    }
+
+    @PostMapping(path = "/task/{id}/user", produces = {"application/json", MediaType.ALL_VALUE}, consumes = {"application/json", MediaType.ALL_VALUE})
+    public String addUserToTask(@PathVariable("id") Long taskId, @RequestBody String userId) {
+        long userIdLong = 0;
+        try {
+            userIdLong = Long.parseLong(userId);
+        } catch (NumberFormatException e) {
+            return "redirect:/";
+        }
+        taskService.addUserToTask(taskId, (long) userIdLong);
+        return "redirect:/";
     }
 
 }

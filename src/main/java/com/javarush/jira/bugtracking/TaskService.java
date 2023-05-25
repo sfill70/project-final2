@@ -59,5 +59,17 @@ public class TaskService extends BugtrackingService<Task, TaskTo, TaskRepository
         return task.get();
     }
 
+    /* п.7*/
+    public void addUserToTask(Long taskId, Long userId) {
+        Task task = repository.getExisted(taskId);
+        User user = userRepository.getExisted(userId);
+        UserBelong userBelongTask = new UserBelong();
+        userBelongTask.setObjectId(task.getId());
+        userBelongTask.setObjectType(ObjectType.TASK);
+        userBelongTask.setUserId(user.getId());
+        userBelongTask.setUserTypeCode(user.getRoles().stream().toList().get(user.getRoles().size() - 1).toString());
+//        userBelongTask.setUserTypeCode("admin");
+        userBelongRepository.save(userBelongTask);
+    }
 
 }
